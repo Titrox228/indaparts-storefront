@@ -10,15 +10,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.4/swiper-bundle.min.css"
+        integrity="sha512-1CRCT9P70z3SktzqL7P8o8YvlmT1nXwFeXLBuVBa4mzQJ4fsvpmsObWooerRi4WzQT8QFrBVz/36mt/XGPYVzw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/reset.css">
+    
+    <link rel="stylesheet" href="css/stollen.style.css">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
-<body>
+<body class="home katalog">
     <header class="header">
-        <div class="header__top">
+        <div class="header__top hide_mobile">
             <div class="container">
                 <button class="open-geo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -29,7 +32,7 @@
                             d="M10 10.8333C11.3807 10.8333 12.5 9.71405 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71405 8.61929 10.8333 10 10.8333Z"
                             stroke="#5D6066" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    Москва
+                    Владимир
                 </button>
                 <nav class="header__top-menu">
                     <ul>
@@ -44,12 +47,32 @@
         </div>
         <div class="header__main">
             <div class="container">
-                <div class="header__logo">
-                    <a href="/">
-                        <img src="img/logo.svg" alt="Логотип">
-                    </a>
+                <div class="header__row">
+                    <button title="Открыть меню" class="header__burger">
+                        <img id="open-burger" src="img/burger-open-black.svg" alt="">
+                        <img id="close-burger" src="img/close.svg" alt="">
+                    </button>
+                    <div class="header__logo">
+                        <a href="/">
+                            <img src="img/logo.svg" alt="Логотип">
+                        </a>
+                    </div>
+                    <button class="header__cart-mobile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z"
+                                stroke="#2F323A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z"
+                                stroke="#2F323A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6"
+                                stroke="#2F323A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </div>
-                <button class="btn btn-icon">
+
+                <button class="btn btn-icon hide_mobile">
                     <img src="img/catalog.svg" alt="">
                     Каталог
                 </button>
@@ -57,13 +80,13 @@
                     <form>
                         <div class="input-iconed">
                             <input type="text" name="search" placeholder="Поиск">
-                            <button type="submit">
+                            <button type="submit" title="Искать">
                                 <img src="/img/search.svg" alt="">
                             </button>
                         </div>
                     </form>
                 </search>
-                <div class="header__controlls">
+                <div class="header__controlls hide_mobile">
                     <button class="header__controll">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path
@@ -101,10 +124,927 @@
                     </button>
                 </div>
             </div>
+            <div class="container">
+                <search role="search" class="header__search header__search-tablet">
+                    <form>
+                        <div class="input-iconed">
+                            <input type="text" name="search" placeholder="Поиск">
+                            <button type="submit" title="Искать">
+                                <img src="/img/search.svg" alt="">
+                            </button>
+                        </div>
+                    </form>
+                </search>
+            </div>
         </div>
-
+        <div class="header__mobile-menu">
+            <div class="container">
+                <div class="header__mobile-menu-header">
+                    <button class="btn btn-icon">
+                        <img src="img/catalog.svg" alt="">
+                        Каталог
+                    </button>
+                    <button class="btn btn-icon btn-light">
+                        <img src="img/profile.svg" alt="">
+                        Профиль
+                    </button>
+                    <button class="btn btn-icon btn-light">
+                        <img src="img/orders.svg" alt="">
+                        Заказы
+                    </button>
+                    <button class="open-geo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path
+                                d="M17.5 8.33333C17.5 14.1667 10 19.1667 10 19.1667C10 19.1667 2.5 14.1667 2.5 8.33333C2.5 6.34421 3.29018 4.43655 4.6967 3.03003C6.10322 1.62351 8.01088 0.833333 10 0.833333C11.9891 0.833333 13.8968 1.62351 15.3033 3.03003C16.7098 4.43655 17.5 6.34421 17.5 8.33333Z"
+                                stroke="#5D6066" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M10 10.8333C11.3807 10.8333 12.5 9.71405 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71405 8.61929 10.8333 10 10.8333Z"
+                                stroke="#5D6066" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Владимир
+                    </button>
+                </div>
+                <div class="header__mobile-menu-list">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Акции</a></li>
+                            <li><a href="#">Строительные материалы</a></li>
+                            <li><a href="#">Керамическая плитка</a></li>
+                            <li><a href="#">Краски</a></li>
+                            <li><a href="#">Сантехника</a></li>
+                            <li><a href="#">Напольные покрытия</a></li>
+                            <li><a href="#">Инструменты</a></li>
+                            <li><a href="#">Обои</a></li>
+                            <li><a href="#">Окна</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header__mobile-menu-list">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Бренды</a></li>
+                            <li><a href="#">Доставка</a></li>
+                            <li><a href="#">Возврат</a></li>
+                            <li><a href="#">Документация</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </header>
 
+    <main class="main">
+        <section class="section section__hero">
+            <div class="hero__swiper swiper">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide slide">
+                            <img src="img/hero-slide1.webp" alt="">
+                            <div class="container">
+                                <div class="slide__content">
+                                    <h2 class="slide__title title">Специальные предложения</h2>
+                                    <p class="slide__text subtitle-big">на строительные материалы и товары для ремонта
+                                    </p>
+                                    <a href="#" class="slide__btn btn text">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide slide">
+                            <img src="img/hero-slide2.webp" alt="">
+                            <div class="container">
+                                <div class="slide__content">
+                                    <h2 class="slide__title title">Распродажа инструментов</h2>
+                                    <p class="slide__text subtitle-big">«СтройкаСтор» стремится сделать условия покупки
+                                        максимально
+                                        выгодными для каждого покупателя, поэтому на сайте регулярно появляются товары
+                                        со скидкой
+                                    </p>
+                                    <a href="#" class="slide__btn btn text">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="swiper__buttons">
+                            <div class="swiper__btn swiper-prev">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12 5L19 12L12 19" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="swiper__btn swiper-next">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12 5L19 12L12 19" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section__discount">
+            <div class="container">
+                <div class="discount">
+                    <div class="discount__header header">
+                        <h2 class="discount__title title-big">Акции</h2>
+                        <a href="items.html" class="discount__btn header__btn text">Все акции<svg width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="discount__items">
+                        <div class="discount__item katalog__item">
+                            <div class="discount__item-img">
+                                <img src="img/discount-img1.webp" alt="">
+                                <div class="discount__item-label subtext">−25%</div>
+                            </div>
+                            <div class="discount__item-content">
+                                <p class="discount__item-text text-big bold">Рубероид РКП-350 ТУ, размер материала 1 х
+                                    10 м
+                                    (10м2, 1
+                                    рулон)</p>
+                                <div class="discount__item-price">
+                                    <p class="discount__item-title subtitle-big bold">449 ₽</p>
+                                    <p class="discount__item-title text-big bold">499 ₽</p>
+                                </div>
+                                <div class="discount__item-btn btn btn-shop text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="discount__item katalog__item">
+                            <div class="discount__item-img">
+                                <img src="img/discount-img2.webp" alt="">
+                            </div>
+                            <div class="discount__item-content">
+                                <p class="discount__item-text text-big bold">Пена монтажная ТЕХНОНИКОЛЬ MASTER 65
+                                    профессиональная
+                                    всесезонная</p>
+                                <div class="discount__item-price">
+                                    <p class="discount__item-title subtitle-big bold">495 ₽</p>
+                                    <p class="discount__item-title text-big bold">660 ₽</p>
+                                </div>
+                                <div class="discount__item-btn btn btn-shop text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="discount__item katalog__item">
+                            <div class="discount__item-img">
+                                <img src="img/discount-img3.webp" alt="">
+                                <div class="discount__item-label subtext">−25%</div>
+                            </div>
+                            <div class="discount__item-content">
+                                <p class="discount__item-text text-big bold">Сетка "Рабица" яч. 50х50/1,5х10 м-ОЦ</p>
+                                <div class="discount__item-price">
+                                    <p class="discount__item-title subtitle-big bold">1 499 ₽</p>
+                                    <p class="discount__item-title text-big bold">1 890 ₽</p>
+                                </div>
+                                <div class="discount__item-btn btn btn-shop text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="discount__item katalog__item">
+                            <div class="discount__item-img">
+                                <img src="img/discount-img4.webp" alt="">
+                            </div>
+                            <div class="discount__item-content">
+                                <p class="discount__item-text text-big bold">Металлочерепица, цвет коричневый, 1.18 х
+                                    1.15 м</p>
+                                <div class="discount__item-price">
+                                    <p class="discount__item-title subtitle-big bold">769 ₽</p>
+                                    <p class="discount__item-title text-big bold">999 ₽</p>
+                                </div>
+                                <div class="discount__item-btn btn btn-shop text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section__kategory">
+            <div class="container">
+                <div class="kategory">
+                    <div class="kategory__header header">
+                        <h2 class="kategory__title title-big">Популярные категории</h2>
+                        <a href="katalog.html" class="kategory__btn text header__btn">Все категории<svg width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                    <div class="kategory__items">
+                        <a href="#" class="kategory__item">
+                            <p class="kategory__item-text text">Душевые</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img1.webp" alt="">
+                            </div>
+                        </a>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Пиломатериалы</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img2.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Линолеум</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img3.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Обои</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img4.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Инструменты</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img5.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Товары для дачи</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img6.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Окна</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img7.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Двери</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img8.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Сантехника</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img9.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Краски</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img10.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Электротовары</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img11.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="kategory__item">
+                            <p class="kategory__item-text text">Интерьер</p>
+                            <div class="kategory__item-img">
+                                <img src="img/kategory-img12.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section__goods">
+            <div class="container">
+                <div class="goods">
+                    <h2 class="goods__title title-big">Популярные товары</h2>
+                    <div class="goods__items">
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img1.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <a href="#" class="goods__item-text text-big">Керамогранит Yasmin 598х185 коричневый C-YA4M112D
+                                </a>
+                                <p class="goods__item-price subtitle-big bold">899 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img2.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Затирка для узких швов Ceresit СЕ 33, цвет белый, 2
+                                    кг</p>
+                                <p class="goods__item-price subtitle-big bold">275 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img3.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Грунтовка Старатели 10л глубокого проникновения</p>
+                                <p class="goods__item-price subtitle-big bold">839 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img4.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Гипсокартон Волма, 2500 х 1200 х 12,5 мм</p>
+                                <p class="goods__item-price subtitle-big bold">335 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img5.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Профиль 0,55мм для гипсокартона</p>
+                                <p class="goods__item-price subtitle-big bold">195 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img6.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Рулетка 3м</p>
+                                <p class="goods__item-price subtitle-big bold">100 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img7.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Кнауф Мп 75 штукатурка гипсовая МН 30кг </p>
+                                <p class="goods__item-price subtitle-big bold">380 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img8.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Уголок серый канализационный Д110 ГР90 </p>
+                                <p class="goods__item-price subtitle-big bold">335 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img9.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Knauf Ротбанд, 30 кг</p>
+                                <p class="goods__item-price subtitle-big bold">508 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img10.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Саморез по металлу 3,5х25 мм для гипсокартона </p>
+                                <p class="goods__item-price subtitle-big bold">340 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img11.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Шпатлевка универсальная Danogips SuperFinish 17 л
+                                </p>
+                                <p class="goods__item-price subtitle-big bold">2 555 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="goods__item katalog__item">
+                            <div class="goods__item-img">
+                                <img src="img/goods-img12.webp" alt="">
+                            </div>
+                            <div class="goods__item-content">
+                                <p class="goods__item-text text-big">Клейкая лента металлизированная Изоспан FL 5х5000
+                                    см</p>
+                                <p class="goods__item-price subtitle-big bold">226 ₽</p>
+                                <div class="goods__item-btn  btn-shop btn text">В корзину</div>
+                                <form action="#" class="btn__form btn-form">
+                                    <div class="btn__form-count plus"></div>
+                                    <input type="number" class="btn__form-input text" min="1" value="1" max="100">
+                                    <div class="btn__form-count minus"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section__kategory section__kategory-brands">
+            <div class="container">
+                <div class="kategory">
+                    <div class="kategory__header header">
+                        <h2 class="kategory__title title-big">Популярные бренды</h2>
+                        <a href="brands.html" class="kategory__btn text header__btn">Все бренды<svg width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                    <div class="kategory__items">
+                        <div class="kategory__item">
+                            <img src="img/brands-img1.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img2.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img3.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img4.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img5.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img6.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img7.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img8.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img9.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img10.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img11.webp" alt="">
+                        </div>
+                        <div class="kategory__item">
+                            <img src="img/brands-img12.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section__reviews">
+            <div class="container">
+                <div class="reviews">
+                    <div class="reviews__header header">
+                        <h2 class="reviews__title title-big">Отзывы</h2>
+                        <div class="reviews__buttons">
+                            <div class="reviews__btn swiper-prev">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12 5L19 12L12 19" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="reviews__btn swiper-next">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12 5L19 12L12 19" stroke="#454950" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__swiper swiper">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide slide">
+                                    <div class="slide__header">
+                                        <div class="slide__contact">
+                                            <div class="slide__img"><img src="img/review-img1.svg" alt=""></div>
+                                            <p class="slide__title text bold">Пётр</p>
+                                        </div>
+                                        <img src="img/_.svg" alt="">
+                                    </div>
+                                    <p class="slide__text text-big">Сегодня 10.03.2022 года, брал перфоратор в аренду в
+                                        магазине
+                                        по
+                                        улице Дорожная. Продавец всё хорошо объяснил, показал и плюс остался бонус в
+                                        ящике
+                                        перфоратора
+                                        это бур нужного мне диаметра, оставленным прежним арендатором. В общем повесил
+                                        телевизор,
+                                        где
+                                        надо было просверлить 4 отверстия, всего за 100 ₽</p>
+                                    <p class="slide__date subtext">21 марта 2022 г.</p>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="slide__header">
+                                        <div class="slide__contact">
+                                            <div class="slide__img"><img src="img/review-img2.svg" alt=""></div>
+                                            <p class="slide__title text bold">Анна</p>
+                                        </div>
+                                        <img src="img/_.svg" alt="">
+                                    </div>
+                                    <p class="slide__text text-big">Живу в п.Володарский МО, очень были рады открытию
+                                        магазина
+                                        СтройкаСтор. Хорошие сотрудники, но особенно хочется отметить работу Алексея за
+                                        его помощь
+                                        в
+                                        решении проблем, очень квалифицированные рекомендации по подбору строительных
+                                        материалов
+                                        для
+                                        ремонта. Хороший ассортимент
+                                    </p>
+                                    <p class="slide__date subtext">18 марта 2022 г.</p>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="slide__header">
+                                        <div class="slide__contact">
+                                            <div class="slide__img"><img src="img/review-img3.svg" alt=""></div>
+                                            <p class="slide__title text bold">Виктор</p>
+                                        </div>
+                                        <img src="img/_.svg" alt="">
+                                    </div>
+                                    <p class="slide__text text-big">Заказывал в данном магазине строй материалы.
+                                        Привезли их
+                                        вовремя и
+                                        в прекрасном состоянии, претензий к доставке, персоналу и прочему меня нет.
+                                        Строй
+                                        материалы мне
+                                        понравились, ремонт с ними я сделал отличный. Магазин мне безумно понравился,
+                                        обязательно
+                                        обращусь сюда снова, большое спасибо</p>
+                                    <p class="slide__date subtext">6 ноября 2021 г.</p>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="slide__header">
+                                        <div class="slide__contact">
+                                            <div class="slide__img"><img src="img/review-img4.svg" alt=""></div>
+                                            <p class="slide__title text bold">Дмитрий</p>
+                                        </div>
+                                        <img src="img/_.svg" alt="">
+                                    </div>
+                                    <p class="slide__text text-big">Данный магазин целиком и полностью оправдал все мои
+                                        ожидания.
+                                        Тут
+                                        мне удалось найти апсалютно все нужные мне материалы для отделочных работ и в
+                                        нужном
+                                        количестве.
+                                        С доставкой тоже получилось всё удобно. привезли всё в заказанном количестве и в
+                                        отличном
+                                        состоянии.
+                                    </p>
+                                    <p class="slide__date subtext">5 ноября 2021 г.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section__about">
+            <div class="container">
+                <div class="about">
+                    <h2 class="about__title title-big">О компании</h2>
+                    <p class="about__text text-big">В СтройкаСтор вы всегда можете купить все необходимые товары для
+                        ремонта
+                        дома и дачи. Хотите сделать ремонт в квартире? Строите загородный дом? Используйте строительные
+                        и
+                        отделочные материалы из нашего каталога.</p>
+                    <p class="about__text text-big">Быстрая доставка строительных товаров по низким ценам сделает ваши
+                        покупки более приятными. Ремонт может стоить дешево, если делать его с нами. Для вас всегда в
+                        наличии
+                        более 30 000 товаров для строительства по низким ценам каждый день.
+                        СтройкаСтор — это широкий ассортимент товаров для дома и ремонта недорого; Возможность заказать
+                        строительные и отделочные материалы для дома и дачи.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="footer__body">
+                    <div class="footer__info">
+                        <a title="Переход на главную страницу" href="index.html" class="footer__logo"><img src="img/inda-logo-white.svg" alt=""></a>
+                        <a href="mailto:info@indaparts.ru" class="footer__info-item">
+                            <img src="img/mail.svg" alt="">
+                            <p class="footer__text text-big">info@indaparts.ru</p>
+                        </a>
+                        <div class="footer__info-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17.5 8.33333C17.5 14.1667 10 19.1667 10 19.1667C10 19.1667 2.5 14.1667 2.5 8.33333C2.5 6.34421 3.29018 4.43655 4.6967 3.03003C6.10322 1.62351 8.01088 0.833333 10 0.833333C11.9891 0.833333 13.8968 1.62351 15.3033 3.03003C16.7098 4.43655 17.5 6.34421 17.5 8.33333Z"
+                                    stroke="#5D6066" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M10 10.8333C11.3807 10.8333 12.5 9.71405 12.5 8.33333C12.5 6.95262 11.3807 5.83333 10 5.83333C8.61929 5.83333 7.5 6.95262 7.5 8.33333C7.5 9.71405 8.61929 10.8333 10 10.8333Z"
+                                    stroke="#5D6066" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <p class="footer__text text-big">Владимир, ул. Пушкина 1488</p>
+                        </div>
+                    </div>
+                    <ul class="footer__list">
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <a href="cabinet.html" class="footer__text text-big bold">Личный кабинет</a>
+                        </li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="orders.html" class="footer__text text-big bold">Заказы</a></li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="#" class="footer__text text-big bold">Избранное</a></li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="cart.html" class="footer__text text-big bold">Корзина</a></li>
+                    </ul>
+                    <ul class="footer__list">
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="#" class="footer__text text-big bold">Каталог</a></li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="items.html" class="footer__text text-big bold">Акции</a></li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="brands.html" class="footer__text text-big bold">Бренды</a></li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="#" class="footer__text text-big bold">Контакты</a>
+                        </li>
+                    </ul>
+                    <ul class="footer__list">
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="#" class="footer__text text-big bold">Стать
+                                продавцом</a></li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="#" class="footer__text text-big bold">Доставка</a>
+                        </li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="return.html" class="footer__text text-big bold">Возврат</a></li>
+                        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 8H12.6667" stroke="#2F323A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6.8335 2.16675L12.6668 8.00008L6.8335 13.8334" stroke="#2F323A"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg><a href="documentation.html" class="footer__text text-big bold">Документация</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__footer">
+                    <p class="footer__text text-big bold">© IndaParts.ru. Интернет магазин автозапчастей</p>
+                    <div class="footer__items">
+                        <img src="img/visa.webp" alt="">
+                        <img src="img/mastercard.webp" alt="">
+                        <img src="img/mastercard.webp" alt="">
+                        <img src="img/mup.webp" alt="">
+                    </div>
+                    <p class="footer__text text-big bold"></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal__wrapper" id="modal1">
+        <div class="modal">
+           <span class="modal__close"></span>
+           <h1 class="modal__title title-big">Выберите ваш город</h1>
+           <form class="nav__form">
+              <input type="text" class="nav__form-input" placeholder="Поиск">
+              <button type="submit" class="nav__form-btn"><img src="img/search.svg" alt=""></button>
+           </form>
+           <div class="modal__menu">
+              <ul class="modal__list">
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Москва</a></li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Екатеринбург</a>
+                 </li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Челябинск</a>
+                 </li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Уфа</a></li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Воронеж</a></li>
+              </ul>
+              <ul class="modal__list">
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Санкт-Петербург</a></li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Казань</a></li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Самара</a></li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Омск</a></li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Пермь</a></li>
+              </ul>
+              <ul class="modal__list">
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Новосибирск</a>
+                 </li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#" class="modal__list-item text-big bold">Нижний
+                       Новгород</a></li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Ростов-на-Дону</a></li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Красноярск</a>
+                 </li>
+                 <li><img src="img/hover-arrow.svg" alt=""><a href="#"
+                       class="modal__list-item text-big bold">Волгоград</a>
+                 </li>
+              </ul>
+           </div>
+        </div>
+     </div>
+     <div class="modal__wrapper" id="modal2">
+        <div class="modal">
+           <span class="modal__close"></span>
+           <h2 class="modal__title title-big">Вход</h2>
+           <form action="#" class="cabinet__form">
+              <div class="cabinet__form-item">
+                 <label class="cabinet__form-label text-big bold">E-mail</label>
+                 <input type="email" class="cabinet__form-input text-big bold" placeholder="youmail@mail.com">
+              </div>
+              <div class="cabinet__form-item">
+                 <label class="cabinet__form-label text-big bold">Пароль</label>
+                 <input type="password" class="cabinet__form-input text-big bold" placeholder="****************">
+              </div>
+              <a href="#" class="modal__text subtext">Забыли пароль?</a>
+              <button class="cabinet__form-btn btn text">Войти</button>
+              <a href="#" class="cabinet__form-btn btn btn-white text" id="modalBtn3">Создать учетную запись</a>
+           </form>
+        </div>
+     </div>
+     <div class="modal__wrapper" id="modal3">
+        <div class="modal">
+           <span class="modal__close"></span>
+           <h2 class="modal__title title-big">Регистрация</h2>
+           <form action="#" class="cabinet__form">
+              <div class="cabinet__form-item half">
+                 <label class="cabinet__form-label text-big bold">Имя</label>
+                 <input type="text" class="cabinet__form-input text-big bold" placeholder="Богдан">
+              </div>
+              <div class="cabinet__form-item half">
+                 <label class="cabinet__form-label text-big bold">E-mail</label>
+                 <input type="email" class="cabinet__form-input text-big bold" placeholder="youmail@mail.com">
+              </div>
+              <div class="cabinet__form-item half">
+                 <label class="cabinet__form-label text-big bold">Новый пароль</label>
+                 <input type="password" class="cabinet__form-input text-big bold" placeholder="****************">
+              </div>
+              <div class="cabinet__form-item half">
+                 <label class="cabinet__form-label text-big bold">Подтверждение пароля</label>
+                 <input type="password" class="cabinet__form-input text-big bold" placeholder="****************">
+              </div>
+              <a href="cabinet.html" class="cabinet__form-btn btn text">Зарегистрироваться</a>
+           </form>
+        </div>
+     </div>
 
     <script src="js/common.js"></script>
 </body>
